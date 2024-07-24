@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drum-machine</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="title">Close enough to a real drummer</h1>
+    </header>
+<!-- have a recorder and metronome as a sidebar option -->
+    <section class="recorder">
+<!-- have a countdown  of 3,2,1,GO! -->
+        <h3>Recorder</h3>
+        <button class="record">Record</button>
+        <button class="play">Play</button>
+        <button class="stop">Stop</button>
+        <button class="erase">Erase</button>
+        <button class="loop">Loop</button>
+    </section>
+    <section class="metronome">
+        <h3>Metronome</h3> 
+        <section class="nome">
+            <button class="start">Start</button>
+            <button class="stopNome">Stop</button>
+        </section>
+        <div class="tempo">
+            <label for="tempo">Tempo(30-200bpm)</label>
+            <input type="number" id="tempo" name="tempo" min="30" max="200">
+        </div>
+<!-- a form w/2 options- basic & advanced, both will have options themselves (Ts=time signature)
+I want each to be a dropdown display when radio button selected-->
+        <form>
+            <h4>Basic</h4>
+            <input type="radio" id="basic" name="tempoOption" value="Basic">
+            <div class="basic">
+                <select name="basicTs" id="basic">
+                    <option value="4/4">4/4(common)</option>
+                    <option value="1/2">1/2(march)</option>
+                    <option value="3/4">3/4(waltz)</option>
+                    <option value="5/4">5/4</option>
+                </select>
+            </div>
+            <br>
+            <h4>Advanced</h4>
+            <input type="radio" id="advanced" name="tempoOption" value="advanced">
+                <div class="advanced">
+<!-- upper # how many such notes constitute a 'bar'-->
+                <h5><em>Upper number</em></h5>
+                    <input type="number" name="advancedTs" min="1"
+                    max="20">
+<!-- lower # the value that the signature is counting -->
+                <h5><em>Lower number</em></h5>
+                    <select name="advancedTs" id="advanced">
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="8">8</option>
+                        <option value="16">16</option>
+                        <option value="32">32</option>
+                    </select>
+                </div>
+        </form>
+        
+    </section>
+<!-- use a web audio api instead of audio files because of web lag -->
+    <br>
+    <section class="drums">
+        <button class="bass">Bass</button>
+        <button class="floorTom">Floor Tom</button>
+        <button class="midTom">Mid Tom</button>
+        <button class="highTom">High Tom</button>
+        <button class="snare">Snare</button>
+        <button class="hiHats">Hi-hats</button>
+        <button class="rideCymbal">Ride Cymbal</button>
+        <button class="crashCymbal">Crash Cymbal</button>
+    </section>
+</body>
+</html>
